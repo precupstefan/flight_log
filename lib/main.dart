@@ -1,6 +1,8 @@
 import 'package:flight_log/screens/home.dart';
 import 'package:flutter/material.dart';
 
+import 'navigation/navigate.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -25,7 +27,8 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      routes: Navigate.routes,
+      // home: HomePage(),
     );
   }
 }

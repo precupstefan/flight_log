@@ -1,9 +1,18 @@
+import 'package:flight_log/objectbox.g.dart';
 import 'package:flight_log/screens/home.dart';
 import 'package:flutter/material.dart';
 
 import 'navigation/navigate.dart';
 
-void main() {
+/// Provides access to the ObjectBox Store throughout the app.
+late Store objectStore;
+
+Future<void> main() async {
+  // This is required so ObjectBox can get the application directory
+  // to store the database in.
+  WidgetsFlutterBinding.ensureInitialized();
+
+  objectStore = await openStore();
   runApp(const MyApp());
 }
 

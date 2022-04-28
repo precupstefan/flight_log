@@ -4,12 +4,6 @@ import 'package:flutter/material.dart';
 import '../navigation/navigate.dart';
 import '../navigation/screen.dart';
 
-class ScreenInfo {
-  String title;
-  Widget screen;
-
-  ScreenInfo(this.title, this.screen);
-}
 
 class HomePage extends StatelessWidget {
   @override

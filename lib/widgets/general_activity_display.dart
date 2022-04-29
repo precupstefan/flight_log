@@ -7,12 +7,14 @@ class GeneralActivityDisplay extends StatefulWidget {
       this.bottomNavigationBarItems = const [],
       required this.pages,
       this.hasFloatingButton = false,
-      this.onFloatingButtonPressed})
+      this.onFloatingButtonPressed,
+      this.appBarActions})
       : assert(hasFloatingButton ? onFloatingButtonPressed != null : true),
         super(key: key);
 
   final String title;
   final List<BottomNavigationBarItem> bottomNavigationBarItems;
+  final List<Widget>? appBarActions;
   final List<Widget> pages;
   final bool hasFloatingButton;
   final VoidCallback? onFloatingButtonPressed;
@@ -34,14 +36,14 @@ class _GeneralActivityDisplay extends State<GeneralActivityDisplay> {
         duration: const Duration(milliseconds: 200), curve: Curves.ease);
   }
 
-  void _onPageChanged(int index){
+  void _onPageChanged(int index) {
     setState(() => _selectedIndex = index);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(widget.title)),
+      appBar: AppBar(title: Text(widget.title), actions: widget.appBarActions),
       body: PageView(
         controller: controller,
         children: widget.pages,
